@@ -2,200 +2,252 @@
 <html lang="zh-cn">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="referrer" content="origin">
-    <title>SlideBar</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Cube</title>
 </head>
 
 <body>
-        <div id="sideBarMain">
-            <!--done-->
-            <div class="newsItem">
-                <style>
-                    /*最外层容器样式*/
-        .wrap {
-            width: 100px;
-            height: 100px;
-            margin: 150px;
-            position: relative;
-        }
- 
-        /*包裹所有容器样式*/
-        .cube {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto;
-            transform-style: preserve-3d;
-            transform: rotateX(-30deg) rotateY(-80deg);
-            animation: rotate linear 20s infinite;
-        }
- 
-        @-webkit-keyframes rotate {
-            from {
-                transform: rotateX(0deg) rotateY(0deg);
-            }
-            to {
-                transform: rotateX(360deg) rotateY(360deg);
-            }
-        }
- 
-        .cube div {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            opacity: 0.8;
-            transition: all .4s;
-        }
- 
-        /*定义所有图片样式*/
-        .pic {
-            width: 200px;
-            height: 200px;
-        }
- 
-        .cube .out_front {
-            transform: rotateY(0deg) translateZ(100px);
-        }
- 
-        .cube .out_back {
-            transform: translateZ(-100px) rotateY(180deg);
-        }
- 
-        .cube .out_left {
-            transform: rotateY(-90deg) translateZ(100px);
-        }
- 
-        .cube .out_right {
-            transform: rotateY(90deg) translateZ(100px);
-        }
- 
-        .cube .out_top {
-            transform: rotateX(90deg) translateZ(100px);
-        }
- 
-        .cube .out_bottom {
-            transform: rotateX(-90deg) translateZ(100px);
-        }
- 
-        /*定义小正方体样式*/
-        .cube span {
-            display: block;
-            width: 100px;
-            height: 100px;
-            position: absolute;
-            top: 50px;
-            left: 50px;
-        }
- 
-        .cube .in_pic {
-            width: 100px;
-            height: 100px;
-        }
- 
-        .cube .in_front {
-            transform: rotateY(0deg) translateZ(50px);
-        }
- 
-        .cube .in_back {
-            transform: translateZ(-50px) rotateY(180deg);
-        }
- 
-        .cube .in_left {
-            transform: rotateY(-90deg) translateZ(50px);
-        }
- 
-        .cube .in_right {
-            transform: rotateY(90deg) translateZ(50px);
-        }
- 
-        .cube .in_top {
-            transform: rotateX(90deg) translateZ(50px);
-        }
- 
-        .cube .in_bottom {
-            transform: rotateX(-90deg) translateZ(50px);
-        }
- 
-        /*鼠标移入后样式*/
-        .cube:hover .out_front {
-            transform: rotateY(0deg) translateZ(200px);
-        }
- 
-        .cube:hover .out_back {
-            transform: translateZ(-200px) rotateY(180deg);
-        }
- 
-        .cube:hover .out_left {
-            transform: rotateY(-90deg) translateZ(200px);
-        }
- 
-        .cube:hover .out_right {
-            transform: rotateY(90deg) translateZ(200px);
-        }
- 
-        .cube:hover .out_top {
-            transform: rotateX(90deg) translateZ(200px);
-        }
- 
-        .cube:hover .out_bottom {
-            transform: rotateX(-90deg) translateZ(200px);
-        }
-                </style>
+	<div style="border:solid; width: 400px; height: 400px;">
+		<!--done-->
+		<style>
+			/*最外层容器样式*/
+			.wrap {
+				border-style: solid;
+				border-color: aqua;
+				width: 200px;
+				height: 200px;
+				margin-left: 100px;
+				margin-top: 100px;
+				position: relative;
+			}
+
+			/*包裹所有容器样式*/
+			.cube {
+				border-style: solid;
+				border-color: red;
+				width: 200px;
+				height: 200px;
+				margin: 0px;
+
+				/* transform	向元素应用 2D 或 3D 转换 */
+
+				transform-style: preserve-3d;
+				/* transform-style: flat|preserve-3d;	规定被嵌套元素如何在 3D 空间中显示 */
+
+				/* transform-origin: x-axis y-axis z-axis;	允许你改变被转换元素转动轴的位置 */
+
+				/* perspective: number|none;	规定 3D 元素的透视效果 */
+
+				/* perspective-origin: %x-axis:left|center|right|length	%y-axis:top|center|bottom|length;	规定 3D 元素的底部位置 */
+
+				backface-visibility: visible;
+				/* backface-visibility:visible|hidden;	定义元素在不面对屏幕时是否可见 */
+
+				animation-name: rotate;
+
+				animation-duration: 10s;
+
+				animation-timing-function: linear;
+				/* animation-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n); 	播放速度*/
+
+				animation-iteration-count: infinite;
+				/*animation-iteration-count:infinate|n;		重复次数*/
+
+				animation-direction: normal;
+				/* animation-direction:alternate|normal;	播放方向*/
+
+				animation-delay: 0s;
+
+				animation-play-state: running;
+				/* animation-play-state:running|paused;	播放状态*/
+			}
+
+			@keyframes rotate {
+				0% {
+					transform-origin: 0% 0% 0px;
+					transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+				}
+
+				25% {
+					transform-origin: 50% 50%  -100px;
+					transform: rotateX(90deg) rotateY(90deg) rotateZ(90deg);
+				}
+
+				50% {
+					transform-origin: 100% 100% 0px;
+					transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+				}
+
+				75% {
+					transform-origin: 50% 50%  100px;
+					transform: rotateX(270deg) rotateY(270deg) rotateZ(270deg);
+				}
+
+				100% {
+					transform-origin: 0% 0% 0px;
+					transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+				}
+			}
+
+			.cube div {
+				border-style: solid;
+				border-color: blue;
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				margin: 0px;
+				opacity: 1;
+				transition: all .4s;
+				transform-origin: center center 0px;
+			}
+
+			/*定义小正方体样式*/
+			.cube span {
+				border-style: solid;
+				border-color: rgb(50, 134, 50);
+				position: absolute;
+				display: block;
+				width: 100px;
+				height: 100px;
+				margin: 50px;
+				transform-origin: center center 0px;
+			}
+
+			/*定义所有图片样式*/
+			.pic {
+				width: 200px;
+				height: 200px;
+			}
+
+			.cube .in_pic {
+				width: 100px;
+				height: 100px;
+			}
+
+			.cube .in_front {
+				transform: rotateY(0deg) translateZ(50px);
+			}
+
+			.cube .in_left {
+				transform: rotateY(-90deg) translateZ(50px);
+			}
+
+			.cube .in_right {
+				transform: rotateY(90deg) translateZ(50px);
+			}
+
+			.cube .in_back {
+				transform: rotateY(180deg) translateZ(50px);
+			}
+
+			.cube .in_top {
+				transform: rotateX(90deg) translateZ(50px);
+			}
+
+			.cube .in_bottom {
+				transform: rotateX(-90deg) translateZ(50px);
+			}
+
+			.cube .out_front {
+				transform: rotateY(0deg) translate3d(0px, 0px, 100px);
+			}
+
+			.cube .out_back {
+				transform: rotateY(180deg) translate3d(0px, 0px, 100px);
+			}
+
+			.cube .out_left {
+				transform: rotateY(-90deg) translate3d(0px, 0px, 100px);
+			}
+
+			.cube .out_right {
+				transform: rotateY(90deg) translate3d(0px, 0px, 100px);
+			}
+
+			.cube .out_top {
+				transform: rotateX(-90deg) translate3d(0px, 0px, 100px);
+			}
+
+			.cube .out_bottom {
+				transform: rotateX(90deg) translate3d(0px, 0px, 100px);
+			}
+
+			/*鼠标移入后样式*/
+
+			.cube:hover .out_front {
+				transform: rotateY(0deg) translate3d(0px, 0px, 200px);
+			}
+
+			.cube:hover .out_back {
+				transform: rotateY(180deg) translate3d(0px, 0px, 200px);
+			}
+
+			.cube:hover .out_left {
+				transform: rotateY(-90deg) translate3d(0px, 0px, 200px);
+			}
+
+			.cube:hover .out_right {
+				transform: rotateY(90deg) translate3d(0px, 0px, 200px);
+			}
+
+			.cube:hover .out_top {
+				transform: rotateX(-90deg) translate3d(0px, 0px, 200px);
+			}
+
+			.cube:hover .out_bottom {
+				transform: rotateX(90deg) translate3d(0px, 0px, 200px);
+			}
+		</style>
 
 
-                <!-- 外层最大容器 -->
-                <div class="wrap">
-                    <!--包裹所有元素的容器-->
-                    <div class="cube">
-                        <!--前面图片 -->
-                        <div class="out_front">
-                            <img src="./files/timg" class="pic">
-                        </div>
-                        <!--后面图片 -->
-                        <div class="out_back">
-                            <img src="./files/timg(1)" class="pic">
-                        </div>
-                        <!--左面图片 -->
-                        <div class="out_left">
-                            <img src="./files/timg(2)" class="pic">
-                        </div>
-                        <!--右面图片 -->
-                        <div class="out_right">
-                            <img src="./files/timg(3)" class="pic">
-                        </div>
-                        <!--上面图片 -->
-                        <div class="out_top">
-                            <img src="./files/timg(4)" class="pic">
-                        </div>
-                        <!--下面图片 -->
-                        <div class="out_bottom">
-                            <img src="./files/timg(5)" class="pic">
-                        </div>
-
-                        <!--小正方体 -->
-                        <span class="in_front">
-                            <img src="./files/timg(6)" class="in_pic">
-                        </span>
-                        <span class="in_back">
-                            <img src="./files/u=2206246084,2215882688&amp;fm=27&amp;gp=0.jpg"
-                                class="in_pic">
-                        </span>
-                        <span class="in_left">
-                            <img src="./files/u=1022923305,3139180948&amp;fm=27&amp;gp=0.jpg"
-                                class="in_pic">
-                        </span>
-                        <span class="in_right">
-                            <img src="./files/timg(7)" class="in_pic">
-                        </span>
-                        <span class="in_top">
-                            <img src="./files/timg(8)" class="in_pic">
-                        </span>
-                        <span class="in_bottom">
-                            <img src="./files/timg(9)" class="in_pic">
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
+		<!-- 外层最大容器 -->
+		<div class="wrap">
+			<!--包裹所有元素的容器-->
+			<div class="cube">
+				<!--前面图片 -->
+				<div class="out_front">
+					<img src="./files/timg" class="pic">
+				</div>
+				<!--后面图片 -->
+				<div class="out_back">
+					<img src="./files/timg(1)" class="pic">
+				</div>
+				<!--左面图片 -->
+				<div class="out_left">
+					<img src="./files/timg(2)" class="pic">
+				</div>
+				<!--右面图片 -->
+				<div class="out_right">
+					<img src="./files/timg(3)" class="pic">
+				</div>
+				<!--上面图片 -->
+				<div class="out_top">
+					<img src="./files/timg(4)" class="pic">
+				</div>
+				<!--下面图片 -->
+				<div class="out_bottom">
+					<img src="./files/timg(5)" class="pic">
+				</div>
+				<!--小正方体 -->
+				<span class="in_front">
+					<img src="./files/timg(6)" class="in_pic">
+				</span>
+				<span class="in_back">
+					<img src="./files/u=2206246084,2215882688&amp;fm=27&amp;gp=0.jpg" class="in_pic">
+				</span>
+				<span class="in_left">
+					<img src="./files/u=1022923305,3139180948&amp;fm=27&amp;gp=0.jpg" class="in_pic">
+				</span>
+				<span class="in_right">
+					<img src="./files/timg(7)" class="in_pic">
+				</span>
+				<span class="in_top">
+					<img src="./files/timg(8)" class="in_pic">
+				</span>
+				<span class="in_bottom">
+					<img src="./files/timg(9)" class="in_pic">
+				</span>
+			</div>
+		</div>
+	</div>
 </body>
